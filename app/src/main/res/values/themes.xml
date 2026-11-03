@@ -1,0 +1,73 @@
+<resources>
+    <style name="Theme.ViajeInteligente" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/primario</item>
+        <item name="colorPrimaryDark">@color/primario_oscuro</item>
+        <item name="colorSecondary">@color/acento</item>
+        <item name="colorAccent">@color/primario_claro</item>
+        <item name="android:windowBackground">@color/fondo_app</item>
+        <item name="android:statusBarColor">@color/fondo_app</item>
+        <item name="android:navigationBarColor">@color/fondo_app</item>
+        <item name="colorSurface">@color/tarjeta</item>
+        <item name="colorOnSurface">@color/texto</item>
+        <item name="android:textColorPrimary">@color/texto</item>
+    </style>
+
+    <style name="TextoSeccion">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primario_claro</item>
+    </style>
+
+    <style name="TextoCuerpo">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/texto_suave</item>
+    </style>
+
+    <!-- Botón redondeado relleno -->
+    <style name="BotonRedondeado" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/primario</item>
+    </style>
+
+    <!-- Botón redondeado con contorno -->
+    <style name="BotonRedondeado.Contorno" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="strokeColor">@color/primario_claro</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/primario_claro</item>
+    </style>
+
+    <!-- Campo de texto con esquinas redondeadas -->
+    <style name="CampoRedondeado" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeColor">@color/primario_claro</item>
+        <item name="hintTextColor">@color/primario_claro</item>
+    </style>
+
+    <!-- Chip del semáforo -->
+    <style name="ChipSemaforo">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/fondo_chip</item>
+    </style>
+</resources>

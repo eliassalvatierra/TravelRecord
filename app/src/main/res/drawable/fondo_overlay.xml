@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- El contorno (stroke) lo cambia OverlayService: verde / amarillo / rojo según el viaje -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/fondo_overlay" />
+    <corners android:radius="40dp" />
+    <stroke android:width="4dp" android:color="@color/contorno_neutro" />
+</shape>

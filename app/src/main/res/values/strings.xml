@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Viaje Inteligente</string>
+    <string name="accesibilidad_descripcion">Lee los textos visibles de la oferta de DiDi para calcular rentabilidad localmente.</string>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <!-- Semáforo (contorno del overlay y chips) -->
+    <color name="verde">#22C55E</color>
+    <color name="amarillo">#F59E0B</color>
+    <color name="rojo">#EF4444</color>
+
+    <!-- Overlay -->
+    <color name="fondo_overlay">#F2121212</color>
+    <color name="contorno_neutro">#6B7280</color>
+    <color name="texto_claro">#FFFFFF</color>
+
+    <!-- App (tema oscuro) -->
+    <color name="primario">#6C4DF6</color>
+    <color name="primario_claro">#A99BFF</color>
+    <color name="primario_oscuro">#0F0F14</color>
+    <color name="acento">#EC4899</color>
+    <color name="fondo_app">#0F0F14</color>
+    <color name="tarjeta">#1B1B25</color>
+    <color name="texto">#F2F0FF</color>
+    <color name="texto_suave">#A5A1C2</color>
+</resources>

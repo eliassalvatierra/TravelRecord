@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_app"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Encabezado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_header"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viajando con el Negro"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Viaje Inteligente: lee la oferta de DiDi y te dice al instante si conviene aceptar."
+                android:textColor="#E9E3FF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Semáforo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                style="@style/ChipSemaforo"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="@color/verde"
+                android:text="Contorno verde\nAceptar" />
+
+            <TextView
+                style="@style/ChipSemaforo"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="@color/amarillo"
+                android:text="Contorno amarillo\nDudoso" />
+
+            <TextView
+                style="@style/ChipSemaforo"
+                android:backgroundTint="@color/rojo"
+                android:text="Contorno rojo\nRechazar" />
+        </LinearLayout>
+
+        <!-- Tarjeta: overlay y permisos -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/tarjeta"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:text="Ventana flotante" />
+
+                <TextView
+                    android:id="@+id/tvEstadoPermiso"
+                    style="@style/TextoCuerpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Permiso de superposición: revisando..." />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swMostrarSiempre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Mostrar siempre (modo diagnóstico)"
+                    android:textColor="@color/texto_suave"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnPedirPermiso"
+                    style="@style/BotonRedondeado.Contorno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Habilitar permiso de superposición" />
+
+                <Button
+                    android:id="@+id/btnAccesibilidad"
+                    style="@style/BotonRedondeado.Contorno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Activar lectura automática" />
+
+                <Button
+                    android:id="@+id/btnIniciarOverlay"
+                    style="@style/BotonRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Iniciar ventana flotante" />
+
+                <Button
+                    android:id="@+id/btnDetenerOverlay"
+                    style="@style/BotonRedondeado.Contorno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Detener ventana flotante" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta: cuándo aceptás un viaje -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/tarjeta"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:text="¿Cuándo aceptás un viaje?" />
+
+                <TextView
+                    style="@style/TextoCuerpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Se decide solo por $/km. Verde: igual o mayor al umbral verde. Rojo: igual o menor al umbral rojo. En el medio, amarillo." />
+
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:layout_marginTop="12dp"
+                    android:text="Umbrales por kilómetro ($/km)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CampoRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Verde ($/km): aceptar desde acá">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUmbralVerdeKm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CampoRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Rojo ($/km): rechazar de acá para abajo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUmbralRojoKm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnGuardar"
+                    style="@style/BotonRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Guardar configuración" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta: simulador -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/tarjeta"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:text="Probar el semáforo" />
+
+                <TextView
+                    style="@style/TextoCuerpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Simulá un viaje para ver el contorno de la ventana flotante sin esperar a DiDi." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CampoRedondeado"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:hint="Pago $">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPruebaPago"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="5300" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CampoRedondeado"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Km">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPruebaKm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="12.2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSimular"
+                    style="@style/BotonRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:backgroundTint="@color/acento"
+                    android:text="Simular viaje" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Tarjeta: km aceptados -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/tarjeta"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:text="Km de viajes aceptados" />
+
+                <TextView
+                    android:id="@+id/tvKmAceptados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="0,0 km"
+                    android:textColor="@color/texto"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/TextoCuerpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Suma los km (hasta el pasajero + viaje) de cada viaje que aceptás. Si no se suma solo, tocá la burbuja mientras se ve el viaje que aceptaste." />
+
+                <Button
+                    android:id="@+id/btnReiniciarKm"
+                    style="@style/BotonRedondeado.Contorno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Reiniciar total" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- Tarjeta: diagnóstico -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/tarjeta"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextoSeccion"
+                    android:text="Diagnóstico de lectura" />
+
+                <TextView
+                    style="@style/TextoCuerpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Usá DiDi, esperá un viaje y volvé acá. Si no calcula, tocá 'Copiar informe' y pegámelo." />
+
+                <TextView
+                    android:id="@+id/tvDiagnostico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/texto_suave"
+                    android:textIsSelectable="true"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnActualizarDiag"
+                    style="@style/BotonRedondeado.Contorno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Actualizar" />
+
+                <Button
+                    android:id="@+id/btnCopiarDiag"
+                    style="@style/BotonRedondeado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Copiar informe" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
